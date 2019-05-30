@@ -1,8 +1,8 @@
-const Discord = require('discord.js')
-const bot = new Discord.Client()
-const prefix = "#";
-
-client.on('message', message => {
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const moment = require('moment');
+const prefix = '#';
+ client.on('message', message => {
 
  var ms = require('ms')
 
@@ -182,5 +182,4 @@ client.on('message', message => {
    }
 
 });
-
 client.login(process.env.BOT_TOKEN);

@@ -1,17 +1,6 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const prefix = "#";
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Desert Bot- Script By : EX Clan`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Louis`,"http://twitch.tv/Death Shop")
-client.user.setStatus("dnd")
-});
-
 
 client.on('message', message => {
 

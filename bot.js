@@ -1,23 +1,6 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const prefix = "#";
-
-
-
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Desert Bot- Script By : EX Clan`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Louis`,"http://twitch.tv/Death Shop")
-client.user.setStatus("dnd")
-});
-
-
-
-
+const Discord = require('discord.js')
+const bot = new Discord.Client()
+const prefix = "#"
 bot.on('message', msg => {
   if(msg.author.bot) return
   if(msg.content.startsWith(prefix + 'role')) {
@@ -69,6 +52,16 @@ if(m.roles.some(r => r.id == role.id)) return
 
 
 })
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : EX Clan`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`Louis`,"http://twitch.tv/Death Shop")
+client.user.setStatus("dnd")
+});
 
 
 

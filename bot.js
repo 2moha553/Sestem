@@ -183,19 +183,7 @@ client.on('message', message => {
 
 });
 
-client.on("message", message => {
 
-            if (message.content.startsWith("!bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {//حقوق دايموند كودز
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
 
 client.on('message', message => {
       if(message.content.startsWith(prefix + 'mutevoice')) {
@@ -244,9 +232,9 @@ client.on('message', message => {
   }
 
 
-  if (message.content.startsWith('$bc')) {
+  if (message.content.startsWith('#bc')) {
           if (!args[0]) {
-message.channel.send("**$bc <message>**");
+message.channel.send("**#bc <message>**");
 return;
 }
 message.guild.members.forEach(m => {

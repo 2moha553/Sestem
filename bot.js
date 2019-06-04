@@ -185,7 +185,7 @@ client.on('message', message => {
 
 client.on("message", message => {
 
-            if (message.content.startsWith("bc")) {
+            if (message.content.startsWith("!bc")) {
                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
@@ -203,7 +203,7 @@ client.on('message', message => {
         if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
 
       if(message.mentions.users.size === 0) {
-        return message.reply("منشن الشغص لتبي تعطيه ميوت.");
+        return message.reply("منشن الشخص لتبي تعطيه ميوت.");
       }
       let muteMember = message.guild.member(message.mentions.users.first());
       if(!muteMember) {
@@ -222,7 +222,7 @@ client.on('message', message => {
       if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
 
     if(message.mentions.users.size === 0) {
-        return message.reply("منشن الشغص لتبي تفك عنه ميوت.");
+        return message.reply("منشن الشخص لتبي تفك عنه ميوت.");
     }
     let muteMember = message.guild.member(message.mentions.users.first());
     if(!muteMember) {

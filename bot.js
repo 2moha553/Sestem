@@ -183,10 +183,79 @@ client.on('message', message => {
 
 });
 
-client.on('message',message => {
-  if(message.content.startsWith('#joinme'))
-message.member.voiceChannel.join()
-message.reply('Done')
+client.on("message", message => {
+
+            if (message.content.startsWith("bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {//حقوق دايموند كودز
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});
+
+client.on('message', message => {
+      if(message.content.startsWith(prefix + 'mutevoice')) {
+        if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**ليس لديك صلاحية لاعطاء ميوت صوتي**:x: ").then(m => m.delete(5000));
+        if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
+
+      if(message.mentions.users.size === 0) {
+        return message.reply("منشن الشغص لتبي تعطيه ميوت.");
+      }
+      let muteMember = message.guild.member(message.mentions.users.first());
+      if(!muteMember) {
+        return message.reply("Try again.");
+      }
+      muteMember.setMute(true);
+      if(muteMember) {
+        message.channel.sendMessage("User muted successfully.");
+      }
+    }
+  });
+
+  client.on('message', message => {
+    if(message.content.startsWith(prefix + 'unmutevoice')) {
+      if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.sendMessage("**ليس لديك صلاحية لاعطاء ميوت صوتي**:x: ").then(m => m.delete(5000));
+      if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**I Don't Have `MUTE_MEMBERS` Permission**").then(msg => msg.delete(6000))
+
+    if(message.mentions.users.size === 0) {
+        return message.reply("منشن الشغص لتبي تفك عنه ميوت.");
+    }
+    let muteMember = message.guild.member(message.mentions.users.first());
+    if(!muteMember) {
+      return message.reply("Try again.");
+    }
+    muteMember.setMute(false);
+    if(muteMember) {
+      message.channel.sendMessage("User muted successfully.");
+    }
+  }
+});
+
+client.on('message', message => {
+
+    let args = message.content.split(' ').slice(1).join(' ');
+
+  if (message.content === 'ping') {
+      message.channel.send(`<@${message.author.id}> Ping..!`)
+  }
+
+
+  if (message.content.startsWith('$bc')) {
+          if (!args[0]) {
+message.channel.send("**$bc <message>**");
+return;
+}
+message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+   m.send(`${args}`);
+
+});
+  }
+
 });
 
 client.login(process.env.BOT_TOKEN);
